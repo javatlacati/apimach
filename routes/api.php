@@ -24,6 +24,7 @@ Route::resource('authors', AuthorController::class);
 Route::resource('books', BookController::class);
 
 Route::get('/booksbyauthor', [BookController::class,'showBookByAuthorName']);
+Route::get('/booksbytitle', [BookController::class,'showBookByTitle']);
 
 Route::resource('cell_details', CellDetailsController::class);
 

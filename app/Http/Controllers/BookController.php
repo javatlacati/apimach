@@ -21,9 +21,16 @@ class BookController extends Controller
     {
         $author_name = $request->query('author_name');
         $books = Book::whereHas('authors', function ($query) use ($author_name) {
-            $query->where('name', $author_name);
-        })->get();
+            $query->where('name', 'LIKE', '%' . $author_name . '%');
+        })->with('authors')->get();
 
+        return $books;
+    }
+
+    public function showBookByTitle(Request $request)
+    {
+        $title = $request->query('title');
+        $books = Book::where('title', 'LIKE', '%'. $title. '%')->with('authors')->get();
         return $books;
     }
 

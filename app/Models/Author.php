@@ -25,13 +25,11 @@ class Author extends Model
     protected $hidden = [
         'created_at',
         'updated_at',
+        'pivot'
     ];
 
-    /**
-     * Get the books for the author.
-     */
     public function books()
     {
-        return $this->hasMany(Book::class);
+        return $this->belongsToMany(Book::class);
     }
 }

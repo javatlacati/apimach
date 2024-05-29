@@ -13,15 +13,26 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Book::with('author')->get();
-        return json_encode($books);
-    }
-
-    public function showBookByAuthorName(Request $request){
-        $author_name = $request->query('author_name');
-        $books = Book::where('author_name', $author_name)->get();
+        $books = Book::with('authors')->get();
         return $books;
     }
+
+    public function showBookByAuthorName(Request $request)
+    {
+        $author_name = $request->query('author_name');
+        $books = Book::whereHas('authors', function ($query) use ($author_name) {
+            $query->where('name', $author_name);
+        })->get();
+
+        return $books;
+    }
+
+    //only one author per book
+//    public function showBookByAuthorName(Request $request){
+//        $author_name = $request->query('author_name');
+//        $books = Book::where('author_name', $author_name)->get();
+//        return $books;
+//    }
 
     /**
      * Show the form for creating a new resource.

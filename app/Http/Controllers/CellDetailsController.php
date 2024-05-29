@@ -13,7 +13,7 @@ class CellDetailsController extends Controller
     public function index()
     {
         $cell_details = CellDetails::with('lat_lng_expression')->get();
-        return response()->json($cell_details);
+        return json_encode($cell_details);
     }
 
     /**

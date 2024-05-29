@@ -13,7 +13,7 @@ class CellLocationController extends Controller
     public function index()
     {
         $cell_locations = CellLocation::with('cell_details.lat_lng_expression')->get();
-        return response()->json($cell_locations);
+        return json_encode($cell_locations);
     }
 
     /**

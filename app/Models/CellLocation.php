@@ -26,6 +26,7 @@ class CellLocation extends Model
         'created_at',
         'updated_at',
         'cell_details_id',
+        'id'
     ];
 
     public function cell_details()

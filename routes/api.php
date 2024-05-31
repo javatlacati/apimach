@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AchivementController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\CategoriaLogroController;
 use App\Http\Controllers\CellDetailsController;
 use App\Http\Controllers\CellLocationController;
 use App\Http\Controllers\GroupedCityController;
@@ -33,3 +35,7 @@ Route::resource('cell_locations', CellLocationController::class);
 Route::resource('grouped_cities', GroupedCityController::class);
 
 Route::resource('items', ItemController::class);
+
+Route::resource('achievement_categories', CategoriaLogroController::class);
+
+Route::resource('achievements', AchivementController::class);

@@ -34,13 +34,6 @@ class BookController extends Controller
         return $books;
     }
 
-    //only one author per book
-//    public function showBookByAuthorName(Request $request){
-//        $author_name = $request->query('author_name');
-//        $books = Book::where('author_name', $author_name)->get();
-//        return $books;
-//    }
-
     /**
      * Show the form for creating a new resource.
      */

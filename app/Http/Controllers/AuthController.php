@@ -22,7 +22,7 @@ class AuthController extends Controller
             ], 401);
         }
 
-        $token = $user->createToken('api-token')->plainTextToken;
+        $token = $user->createToken('api-token', ['*'], now()->addWeek())->plainTextToken;
         $response = [
             'token' => $token
         ];

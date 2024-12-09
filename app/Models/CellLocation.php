@@ -7,14 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class CellLocation extends Model
 {
-    // cell_name: string
     /**
      * The attributes that are mass assignable.
      *
-     * @var array<int, string>
+     * @var array<string>
      */
     protected $fillable = [
-        'cell_name',
+        'cell_name', // string
     ];
 
     /**

@@ -11,9 +11,10 @@ class BookController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $books = Book::with('authors')->get();
+        $perPage = $request->query('per_page', 15);
+        $books = Book::with('authors')->paginate($perPage);
         return $books;
     }
 
